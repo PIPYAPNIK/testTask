@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    const fruits = [   
+        {id: 1, type: 'apple', price: 52},   
+        {id: 2, type: 'apple', price: 76},   
+        {id: 3, type: 'orange', price: 48},   
+        {id: 4, type: 'orange', price: 52},   
+        {id: 5, type: 'apple', price: 32},   
+        {id: 6, type: 'pineapple', price: 52},  
+        {id: 7, type: 'apple', price: 88},   
+        {id: 8, type: 'pineapple', price: 66},   
+        {id: 9, type: 'apple', price: 52},   
+        {id: 10, type: 'pineapple', price: 88}, 
+    ];
+
+    //first
+    const SortObjects = (array) => {
+        let resItems = [];
+        array.map( (value, index) => {
+            for(key in value) {
+                if(key == 'type') {
+                    if(value[key] != 'apple') {
+                        if(value[key] == 'pineapple') {
+                            value['price'] *= 2;
+                        }
+                        resItems.push(value);
+                    }
+                }
+            }
+        });
+        array.splice(0, array.length);
+        for(let i = 0; i < resItems.length; i++) {
+            array.push(resItems[i]);
+        }
+    };
+
+    //second
+    const SortObjectsToArray = (array) => {
+        const copyArr = JSON.parse(JSON.stringify(array))
+        let resArr = [];
+        copyArr.map( (value, index) => {
+            for(let key in value) {
+                if (key == 'type') {
+                    if (value[key] != 'apple') {
+                        if (value[key] == 'pineapple') {
+                            value['price'] *= 2;
+                        }
+                        resArr.push(value);
+                    }
+                }
+            }
+        });
+        return resArr;
+    };
+
+    //first
+    //SortObjects(fruits);
+    //console.log(fruits);
+
+    //second
+    let viewArray = SortObjectsToArray(fruits);
+    console.log(viewArray);
+
+
+    </script>
+</body>
+</html>
