@@ -38,14 +38,12 @@
             }
         });
         array.splice(0, array.length);
-        for(let i = 0; i < resItems.length; i++) {
-            array.push(resItems[i]);
-        }
+        array.push(...resItems);
     };
 
     //second
     const SortObjectsToArray = (array) => {
-        const copyArr = JSON.parse(JSON.stringify(array))
+        const copyArr = JSON.parse(JSON.stringify(array));
         let resArr = [];
         copyArr.map( (value, index) => {
             for(let key in value) {
@@ -63,12 +61,12 @@
     };
 
     //first
-    //SortObjects(fruits);
-    //console.log(fruits);
+    SortObjects(fruits);
+    console.log(fruits);
 
     //second
-    let viewArray = SortObjectsToArray(fruits);
-    console.log(viewArray);
+    //let viewArray = SortObjectsToArray(fruits);
+    //console.log(viewArray);
 
 
     </script>
